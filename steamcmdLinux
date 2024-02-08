@@ -1,0 +1,9 @@
+FROM cm2network/steamcmd
+
+RUN ./steamcmd.sh +force_install_dir /home/steam/squad-dedicated +login anonymous +app_update 403240 +quit
+
+RUN ./steamcmd.sh +login anonymous +app_update 2394010 validate +quit
+
+WORKDIR /Steam/steamapps/common/PalServer
+
+CMD ./PalServer.sh
